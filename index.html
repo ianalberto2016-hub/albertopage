@@ -11,20 +11,49 @@
                 <h1>Andamo´ happy my bros, she is stupid</h1>
             </marquee>
         </font>
+    <style>
+    .widget-reloj {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 15px 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        display: inline-block;
+        font-family: Arial, sans-serif;
+        max-width: 250px;
+    }
+
+    .widget-reloj .fecha-pequena {
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 5px;
+        opacity: 0.9;
+    }
+
+    .widget-reloj .hora-pequena {
+        font-size: 28px;
+        font-weight: 700;
+        font-family: 'Courier New', monospace;
+        letter-spacing: 2px;
+    }
+</style>
         
         <br>
         
         <img src="https://i.pinimg.com/originals/c2/55/2a/c2552a95983aa61b54dd7b40446f2be5.gif" height="250" style="border: 7px dashed #00FF00;">
         <br><br>
         
-        <marquee behavior="scroll" direction="up" scrollamount="3" loop="infinite" style="height: 100px; width: 80%; overflow: hidden; color: #000000; font-size: 24px; background-color: #FF0000;">
-            Vuelve por favor
+        <marquee behavior="scroll" direction="up" scrollamount="3" loop="infinite" style="height: 100px; width: 80%; overflow: hidden; color: #000000; font-size: 24px; background-color: #5dc1b9;">
+            it´s <div class="widget-reloj">
+    <div class="fecha-pequena" id="fechaWidget"></div>
+    <div class="hora-pequena" id="horaWidget"></div>
+</div>
             <br>
-            Bien migajero
+            Hoy es dia de jugar al roba un brainrot
             <br>
             pero si la amo
             <br>
-            Hola mi amorsh, te amo
+            Hola mi amorsh
         </marquee>
         
         <br><br>
@@ -51,8 +80,35 @@
         </font>
         
     </center>
+    </body> -->
+<script>
+    function actualizarWidget() {
+        const ahora = new Date();
+        
+        // Fecha corta
+        const dia = String(ahora.getDate()).padStart(2, '0');
+        const mes = String(ahora.getMonth() + 1).padStart(2, '0');
+        const año = ahora.getFullYear();
+        const fechaCorta = ${dia}/${mes}/${año};
+        
+        // Hora
+        const horas = String(ahora.getHours()).padStart(2, '0');
+        const minutos = String(ahora.getMinutes()).padStart(2, '0');
+        const segundos = String(ahora.getSeconds()).padStart(2, '0');
+        const horaFormateada = ${horas}:${minutos}:${segundos};
+        
+        // Actualizar
+        document.getElementById('fechaWidget').textContent = fechaCorta;
+        document.getElementById('horaWidget').textContent = horaFormateada;
+    }
+
+    // Actualizar cada segundo
+    actualizarWidget();
+    setInterval(actualizarWidget, 1000);
+</script>
 </body>
 </html>
+
 
 
 
