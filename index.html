@@ -57,10 +57,41 @@
         
         <font color="#000000" size="5" face="Comic Sans MS">
             <p>Que hora es?</p>
-            <div class="widget-reloj">
-    <div class="fecha-pequena" id="fechaWidget"></div>
-    <div class="hora-pequena" id="horaWidget"></div>
+            <!-- Copia TODO esto y pégalo donde quieras que aparezca el reloj -->
+
+<div id="miReloj" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 15px 20px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); display: inline-block; font-family: Arial, sans-serif; max-width: 250px;">
+    <div id="fechaWidget" style="font-size: 14px; font-weight: 600; margin-bottom: 5px; opacity: 0.9;"></div>
+    <div id="horaWidget" style="font-size: 28px; font-weight: 700; font-family: 'Courier New', monospace; letter-spacing: 2px;"></div>
 </div>
+
+<script>
+(function() {
+    function actualizarWidget() {
+        var ahora = new Date();
+        
+        var dia = ('0' + ahora.getDate()).slice(-2);
+        var mes = ('0' + (ahora.getMonth() + 1)).slice(-2);
+        var año = ahora.getFullYear();
+        var fechaCorta = dia + '/' + mes + '/' + año;
+        
+        var horas = ('0' + ahora.getHours()).slice(-2);
+        var minutos = ('0' + ahora.getMinutes()).slice(-2);
+        var segundos = ('0' + ahora.getSeconds()).slice(-2);
+        var horaFormateada = horas + ':' + minutos + ':' + segundos;
+        
+        var elemFecha = document.getElementById('fechaWidget');
+        var elemHora = document.getElementById('horaWidget');
+        
+        if (elemFecha && elemHora) {
+            elemFecha.textContent = fechaCorta;
+            elemHora.textContent = horaFormateada;
+        }
+    }
+    
+    actualizarWidget();
+    setInterval(actualizarWidget, 1000);
+})();
+</script>
             <p>desayuna pan con huevo:</p>
             <button onclick="alert('con o sin vaselina?')" style="background-color: #FFD700; color: #8B0000; font-size: 30px; padding: 20px; border: 5px solid black; cursor: not-allowed;">
                 ¡HAZ CLIC AQUÍ PARA IRSE A LA PICHA!
@@ -109,6 +140,7 @@
 </script>
 </body>
 </html>
+
 
 
 
